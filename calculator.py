@@ -7,6 +7,18 @@ calculator program yourself in this file.
 from arithmetic import add, subtract, multiply, divide, square, cube, power, mod
 
 
+# def is_digits(comp):
+#     '''takes list; breaks it down into characters; 
+#     tests if each character after the operator is a digit'''
+#     for operand in comp[1:]:
+#         for char in operand:
+#             if char not in ["0", "2", "3typ:
+#                 print "Please make sure that you are entering only numbers after the operator."
+#                 return False
+#             else:
+#                 return True
+
+
 def calculate(comp):
     if comp[0] == "+":
         return add(comp[1], comp[2])
@@ -31,23 +43,27 @@ def calculate(comp):
 
 
 def tokenize(comp):
+    '''takes in raw data and returns a list'''
     split = comp.split()
     operator = split[0]
     tokens = [operator]
-    if len(split) >= 2:  # make into loop
-        a = int(split[1])
-        tokens.append(a)
-    if len(split) > 2:
-        b = int(split[2])
-        tokens.append(b)
+    for past_one in split[1:]:
+        try:
+            tokens.append(int(float(past_one)))
+        except ValueError:
+            print "Please use numbers"
+            return False
     return tokens
 
 
 def main():
+    '''takes raw_input (str); returns the answer'''
     computing = True
     while computing == True:
         comp = tokenize(raw_input("> "))
-        if comp[0] == "q":
+        if comp == False:
+            return
+        elif comp[0] == "q":
             computing = False
         else:
             answer = calculate(comp)
@@ -61,3 +77,9 @@ if __name__ == '__main__':
 #  tokenize loop
 #  + 1
 #  + 1 a
+
+
+    
+# def is_operator(char):
+
+# def has_enough_operands()    
