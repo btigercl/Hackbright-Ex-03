@@ -20,7 +20,16 @@ from arithmetic import add, subtract, multiply, divide, square, cube, power, mod
 
 
 def calculate(comp):
-    if comp[0] == "+":
+    if len(comp) < 2:
+        print "Please provide more information"
+    elif len(comp) < 3:
+        if comp[0] == "square":
+            return square(comp[1])
+        elif comp[0] == "cube":
+            return cube(comp[1])
+        else:
+            print "Your chosen operator needs more numbers."
+    elif comp[0] == "+":
         return add(comp[1], comp[2])
     elif comp[0] == "-":
         return subtract(comp[1], comp[2])
@@ -30,10 +39,6 @@ def calculate(comp):
         a = float(comp[1])
         b = float(comp[2])
         return divide(a, b)
-    elif comp[0] == "square":
-        return square(comp[1])
-    elif comp[0] == "cube":
-        return cube(comp[1])
     elif comp[0] == "pow":
         return power(comp[1], comp[2])
     elif comp[0] == "mod":
@@ -74,11 +79,7 @@ if __name__ == '__main__':
     main()
 
 #  To Do:
-#  tokenize loop
 #  + 1
-#  + 1 a
-
-
     
 # def is_operator(char):
 
