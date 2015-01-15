@@ -67,7 +67,7 @@ def main():
     while computing == True:
         comp = tokenize(raw_input("> "))
         if comp == False:
-            return
+            print "Try again or type q"
         elif comp[0] == "q":
             computing = False
         else:
@@ -76,11 +76,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
-
-#  To Do:
-#  + 1
-    
-# def is_operator(char):
-
-# def has_enough_operands()    
+    main() 
